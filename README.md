@@ -1,9 +1,9 @@
 # P8_Deployez_un_modele_dans_le_cloud
 Le projet s'appuie sur un service AWS s3 et a vocation a être déployé sur une machine AWS EC2.
 Il a pour but de fournir un exemple d'utilisation de pyspark dans le cloud
-## Création de compte Amazon Web Services
+## 1.Création de compte Amazon Web Services
 Attention! La création d'un compte [aws](https://aws.amazon.com/fr/premiumsupport/knowledge-center/create-and-activate-aws-account/) nécessite de renseigner "un mode de paiement valide" contenant à minima 1$ de solde ! 
-## Configuration s3
+## 2.Configuration s3
 Accéder à la [AWS Management Console](https://s3.console.aws.amazon.com/s3/get-started?region=eu-west-3&region=eu-west-3)<br>
 Créer un bucket S3 avec la configuration suivante :<br>
 - bucket name: "nom de bucket" <br>
@@ -13,7 +13,7 @@ Créer un bucket S3 avec la configuration suivante :<br>
 - Bucket versioning: Disable <br>
 - No tags <br>
 - Server-side encryption: Disable <br>
-## Ajout d'un utilisateur via IAM
+## 3.Ajout d'un utilisateur via IAM
 Accéder à la console [IAM](https://us-east-1.console.aws.amazon.com/iamv2/home?region=us-east-1&skipRegion=true#/home)
 - Cliquer sur "utilisateurs" dans le menu de gauche
 - Cliquer sur "Ajouter des utilisateurs" (Bouton dans le nouvel écran)
@@ -26,14 +26,14 @@ Accéder à la console [IAM](https://us-east-1.console.aws.amazon.com/iamv2/home
 - Cliquer sur "suivant vérification"
 - Cliquer sur "Créer un utilisateur"
 - Téléchargez.csv et prenez en note "ID de clé d'accès", "Entrée" et "Clé d'accès secrète" dans un key.txt (mettez le tout dans un dossier AWS de votre ordi)
-## Traitement et chargement des données brutes dans s3
+## 4.Traitement et chargement des données brutes dans s3
 Installez un environnement Notebook avec anaconda sur votre ordinateur via [https://sparkbyexamples.com/pyspark/install-pyspark-in-anaconda-jupyter-notebook/](https://sparkbyexamples.com/pyspark/install-pyspark-in-anaconda-jupyter-notebook/) <br>
 Créer un favori vers [https://github.com/spark-examples/pyspark-examples](https://github.com/spark-examples/pyspark-examples), ça vous sera utile par la suite pour vos propres développements <br>
 - Télécharger les données [https://www.kaggle.com/datasets/moltean/fruits](https://www.kaggle.com/datasets/moltean/fruits)
 - télécharger le fichier "Traitement_des_donnees.ipynb" que vous trouverez dans le dossier source et placez le dans le dossier local des notebook
 - copier le fichier key.txt que vous avez mis dans le dossier AWS de votre ordinateur dans le dossier local des notebook
 - Ouvrez, paramétrez et éxécutez le fichier "Traitement_des_donnees.ipynb" que vous trouverez dans le dossier source (La première partie permet de supprimer les espaces dans votre arborescence, si si c'est utile pour certaines fonctions de spark. La seconde partie à charger l'arborescence sur votre bucket)
-## Configuration EC2 [issue de https://github.com/nsaintgeours/sparkyfruit](https://github.com/nsaintgeours/sparkyfruit)
+## 5.Configuration EC2 [source https://github.com/nsaintgeours/sparkyfruit](https://github.com/nsaintgeours/sparkyfruit)
 - Accèder au [service AWS EC2](https://eu-west-3.console.aws.amazon.com/ec2)
 - Dans le menu de gauche, sélectionner **Instances / Instances**
 - Cliquer sur le bouton orange en haut à droite : **Launch instances / Launch instances**
@@ -73,8 +73,8 @@ Créer un favori vers [https://github.com/spark-examples/pyspark-examples](https
 	- Cliquer sur le **bouton "Connect"**
 	- on arrive sur une nouvelle page *Connect to instance* : laisser les options par défaut et cliquer en bas sur le **bouton orange "Connect"**
 	- une nouvelle page s'ouvre dans le navigateur web, avec **une console Linux** : ça y est, on est sur notre serveur virtuel !
-## 4. Utiliser un notebook Jupyter sur le serveur virtuel EC2
-- Depuis la **console Linux** ouverte au point 3, on suite les étapes suivantes pour installer Jupyter et ouvrir un notebook :
+## 6.Utiliser un notebook Jupyter sur le serveur virtuel EC2
+- Depuis la **console Linux** ouverte au point 5, on suite les étapes suivantes pour installer Jupyter et ouvrir un notebook :
 	- Python3 est déjà installé par défaut, on peut vérifier la version avec :	
 	```
 	[ec2-user@ip-172-31-33-35 ~]$ python3 --version
@@ -103,7 +103,7 @@ Créer un favori vers [https://github.com/spark-examples/pyspark-examples](https
 - Le serveur Jupyter Notebook s'ouvre, avec sécurisation de l'accès par le mot de passe que l'on a défini précédemment	
 - Créer **un nouveau notebook**, l'ouvrir, et tester si tout fonctionne !
 
-## 5. Accèder aux images stockées sur S3 depuis le notebook Jupyter
+## 7.Accèder aux images stockées sur S3 depuis le notebook Jupyter
 
 Pour que l'on puisse accéder aux données stockées sur S3 depuis notre notebook Jupyter, il faut que le serveur virtuel EC2 ait le droit d'accès à S3, en lecture. 
 On suit les étapes suivantes pour lui donner ce droit d'accès : 
@@ -134,7 +134,7 @@ On va maintenant écrire du code dans le notebook Jupyter pour charger l'une des
 Pour cela, on a besoin de deux packages Python : `boto3`, qui permet d'interagir avec S3, et `pillow`, qui permet de manipuler des images. 
 On commence donc par installer ces deux packages sur notre instance EC2. 
 
-- dans la **console Linux** de notre instance EC2, taper :
+- dans la **console Linux** de notre instance EC2 (on peut en lancer une nouvelle sans fermer la précédente depuis le **bouton orange "Connect"** de l'instance), taper :
 
 	```
 	[ec2-user@ip-172-31-33-35 ~]$ pip3 install boto3
@@ -160,9 +160,9 @@ On commence donc par installer ces deux packages sur notre instance EC2.
 Et voilà !
 
 
-## 6. Installer PySpark et configurer son accès à S3
+## 8.Installer PySpark et configurer son accès à S3
 
-### 6.1. Installer PySpark
+### 8.1. Installer PySpark
 
 - Spark a besoin de **Java** pour tourner, on commence donc par installer **Java OpenJDK 11**, via la console Linux de notre instance EC2 :
 
@@ -177,7 +177,7 @@ Et voilà !
 ```
 
 
-### 6.2. Configurer PySpark pour son accès à S3
+### 8.2. Configurer PySpark pour son accès à S3
 
 Il nous faut configurer PySpark pour qu'il puisse accéder aux données stockées sur S3.
 :warning: Cette partie est un peu pénible. :warning:
@@ -224,7 +224,7 @@ dépenances sont listés sur le site suivant : [https://mvnrepository.com/artifa
 Et voilà pour cette partie ardue, c'est terminé !
 
 
-### 6.3. Utiliser PySpark
+### 8.3. Utiliser PySpark
 
 
 - Depuis la **console Linux de notre instance EC2**, relancer le serveur Jupyter Notebook et ouvrir un notebook (voir point 4)
@@ -248,4 +248,5 @@ Si votre installation de PySpark fonctionne, vous obtenez :
 ```
 [1, 4, 9, 16]
 ```
-## Traitement et sauvegarde des résultats
+## 9.Traitement et sauvegarde des résultats
+
