@@ -227,8 +227,10 @@ Et voilà pour cette partie ardue, c'est terminé !
 ### 8.3. Utiliser PySpark
 
 
-- Depuis la **console Linux de notre instance EC2**, relancer le serveur Jupyter Notebook et ouvrir un notebook (voir point 4)
-
+- Depuis la **console Linux de notre instance EC2**, relancer le serveur Jupyter Notebook et ouvrir un notebook (voir point 6)
+```
+jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+```
 - Dans le notebook Jupyter, le bloc de code suivant permet de lancer une petite démo de PySpark : 
 
 ```
