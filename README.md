@@ -141,7 +141,7 @@ On commence donc par installer ces deux packages sur notre instance EC2.
 	[ec2-user@ip-172-31-33-35 ~]$ pip3 install pillow
 	```
 		
-- comme déjà expliqué au point 4, relancer le serveur Jupyter Notebook et ouvrir un nouveau notebook
+- comme déjà expliqué au point 6, relancer le serveur Jupyter Notebook et ouvrir un nouveau notebook
 
 - dans le notebook Jupyter, taper le bloc de code suivant permet de charger et d'afficher une des images stockées sur votre bucket S3 : 
 
