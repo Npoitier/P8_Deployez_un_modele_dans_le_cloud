@@ -25,7 +25,13 @@ Accéder à la console [IAM](https://us-east-1.console.aws.amazon.com/iamv2/home
 - Cliquer sur "suivant balises"
 - Cliquer sur "suivant vérification"
 - Cliquer sur "Créer un utilisateur"
-- Téléchargez.csv et prenez en note "ID de clé d'accès" et "Clé d'accès secrète" dans un fichier.txt
+- Téléchargez.csv et prenez en note "ID de clé d'accès\n" et "Clé d'accès secrète\n" dans un key.txt (mettez le tout dans un dossier AWS de votre ordi)
 ## Traitement et chargement des données brutes dans s3
+Installez un environnement Notebook avec anaconda sur votre ordinateur via [https://sparkbyexamples.com/pyspark/install-pyspark-in-anaconda-jupyter-notebook/](https://sparkbyexamples.com/pyspark/install-pyspark-in-anaconda-jupyter-notebook/) <br>
+Créer un favori vers [https://github.com/spark-examples/pyspark-examples](https://github.com/spark-examples/pyspark-examples), ça vous sera utile par la suite pour vos propres développements <br>
+- Télécharger les données [https://www.kaggle.com/datasets/moltean/fruits](https://www.kaggle.com/datasets/moltean/fruits)
+- télécharger le fichier "Traitement_des_donnees.ipynb" que vous trouverez dans le dossier source et placez le dans le dossier local des notebook
+- copier le fichier key.txt que vous avez mis dans le dossier AWS de votre ordinateur dans le dossier local des notebook
+- Ouvrez et éxécutez le fichier "Traitement_des_donnees.ipynb" que vous trouverez dans le dossier source (La première partie permet de supprimer les espaces dans votre arborescence, si si c'est utile pour certaines fonctions de spark. La seconde partie à charger l'arborescence sur votre bucket)
 ## Configuration EC2
 ## Traitement et sauvegarde des résultats
