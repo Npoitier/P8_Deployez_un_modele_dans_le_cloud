@@ -33,7 +33,7 @@ Créer un favori vers [https://github.com/spark-examples/pyspark-examples](https
 - télécharger le fichier "Traitement_des_donnees.ipynb" que vous trouverez dans le dossier source et placez le dans le dossier local des notebook
 - copier le fichier key.txt que vous avez mis dans le dossier AWS de votre ordinateur dans le dossier local des notebook
 - Ouvrez, paramétrez et éxécutez le fichier "Traitement_des_donnees.ipynb" que vous trouverez dans le dossier source (La première partie permet de supprimer les espaces dans votre arborescence, si si c'est utile pour certaines fonctions de spark. La seconde partie à charger l'arborescence sur votre bucket)
-## Configuration EC2
+## Configuration EC2 [issue de https://github.com/nsaintgeours/sparkyfruit](https://github.com/nsaintgeours/sparkyfruit)
 - Accèder au [service AWS EC2](https://eu-west-3.console.aws.amazon.com/ec2)
 - Dans le menu de gauche, sélectionner **Instances / Instances**
 - Cliquer sur le bouton orange en haut à droite : **Launch instances / Launch instances**
