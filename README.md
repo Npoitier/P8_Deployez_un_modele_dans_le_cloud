@@ -249,4 +249,26 @@ Si votre installation de PySpark fonctionne, vous obtenez :
 [1, 4, 9, 16]
 ```
 ## 9.Traitement et sauvegarde des résultats
+Ouvrez un nouveau Notebook <br>
+copiez le contenu de toutes les cellules du fichier "P8_Deployez_un_modele_dans_le_cloud.ipynb" <br>
+Depuis un console linux (cf point 5 le **bouton orange "Connect"** de l'instance EC2), tapez
+```
+pip3 install findspark
+pip3 install pandas
+pip3 install numpy
+```
+Configurez les variables
+Ecrire la fonction de création du fichier key.txt depuis le notebook après les import
+```
+fichier = open("keys.txt", "w")
+fichier.write("ID de clé d'accès\n")
+fichier.write("Entrée" et "Clé d'accès secrète\n")
+fichier.close()
+```
+Pensez à supprimer la cellule pour ne pas donner vos accés si vous mettez votre projet sur git !!!!
+
+Rappel pour lancer jupiter depuis la console
+```
+jupyter notebook --ip 0.0.0.0 --no-browser --allow-root
+```
 
